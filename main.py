@@ -15,7 +15,7 @@ data = pd.read_csv("clustered.csv")
 st.subheader("Please, select your favourite genre")
 continent2 = st.sidebar.selectbox(label = "genres", options = data["artist_genres"].unique())
 continent2 = "continent2"
-
+print(continent2)
 #Prediction
 if st.button('I want new music!'):
     inputs1 = continent2
