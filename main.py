@@ -12,8 +12,8 @@ st.header("Rocking Recommender")
 data = pd.read_csv("clustered.csv")
 
 #Features Zones
-st.subheader("Please, select your favourite genre")
-continent2 = st.sidebar.selectbox(label = "genres", options = data["artist_genres"].unique())
+st.subheader("Discover new music")
+continent2 = st.sidebar.selectbox(label = "Please, select your favourite genre", options = data["artist_genres"].unique())
 continent2 = continent2
 
 #Prediction
