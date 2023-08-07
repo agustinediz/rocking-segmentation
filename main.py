@@ -11,10 +11,6 @@ st.header("Rocking Recommender")
          
 data = pd.read_csv("clustered.csv")
 
-# load model 
-with open("model.pkl", "rb") as f:
-    model = pickle.load(f)
-
 #Features Zones
 st.subheader("Please, select your favourite genre")
 continent2 = st.sidebar.selectbox(label = "genres", options = data["artist_genres"].unique())
