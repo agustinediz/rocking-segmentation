@@ -23,4 +23,4 @@ if st.button('I want new music!'):
     a = recommender["cluster"].to_numpy().astype(int)
     cluster = a[0]
     recommendation = data[data["cluster"] == cluster]
-    st.write(f"You should explore this genres: {recommendation["artist"].head(2)}")
+    st.write(f"You should explore this artists: {recommendation["artist"].head(2)}")
