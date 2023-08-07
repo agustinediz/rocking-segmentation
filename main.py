@@ -1,0 +1,29 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import joblib
+
+st.set_page_config(
+    page_title="Rocking Recommender",
+    page_icon=":robot:"
+)
+st.header("Rocking Recommender")       
+         
+data = pd.read_csv("clustered.csv")
+
+# load model 
+with open("model.pkl", "rb") as f:
+    model = pickle.load(f)
+
+#Features Zones
+st.subheader("Please, select your favourite genre")
+continent2 = st.sidebar.selectbox(label = "genres", options = data["artist_genres"].unique())
+continent2 = str(continent2)
+
+#Prediction
+if st.button('I want new music!'):
+    inputs1 = continent2
+    recommender = data[data["artist_genres"] == inputs1]
+    cluster = recommender["cluster"].unique()
+    recommendation = data[data["cluster"] == cluster]
+    st.write(f"You should explore this genres: {recommendation.head(2)}")
